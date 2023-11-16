@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import HealthRecords from '../components/HealthRecords';
+import { Link } from 'react-router-dom';
 //Get request htmlFor user inhtmlFormation here
 
 export const Home = () => {
@@ -75,7 +76,7 @@ export const Home = () => {
     </div>
   </div>
 </section>
-     <div className='container text-center flex justify-center '> <a href="/operations">operations</a></div>
+     <div className='container text-center flex justify-center '> <Link to="/operations">operations</Link></div>
     </div>
 </>
   )
