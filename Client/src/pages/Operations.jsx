@@ -51,7 +51,7 @@ const Operations = () => {
             };
       
             // Fetch request to create a patient record
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/create`, createRecordOptions);
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/create`, createRecordOptions);
       
             if (response.ok) {
               const createdPatientRecord = await response.json();
