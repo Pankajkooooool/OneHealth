@@ -4,7 +4,7 @@ import User from "../models/User.js";
 /* CREATE */
 export const createUserData = async (req, res) => {
   try {
-    const { Description,Condition,Directions,userinfo } = req.body;
+    const { Description,Condition,Directions,userinfo,userId } = req.body;
     // const user = await User.findById(userId);
     
     const newUserRecord = new PatientRecords({
@@ -13,9 +13,10 @@ export const createUserData = async (req, res) => {
       Condition,
       Directions,
       userinfo,
+      userId
     });
     //Write the code for verifying with the user here
-
+   
 
     await newUserRecord.save();
 

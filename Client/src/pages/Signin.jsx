@@ -7,8 +7,9 @@ const Signin = ({isAuth,updateAuth}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [Cpassword, setCPassword] = useState('');
-  const [UserName, setUserName] = useState('')
-  const [Uid, setUid] = useState('')
+  const [HospitalName, setHospitalName] = useState('')
+  const [Address, setAddress] = useState('')
+ 
   const [phone, setphone] = useState()
   const navigate = useNavigate();
 
@@ -16,17 +17,17 @@ const Signin = ({isAuth,updateAuth}) => {
   const handleLogin = () => {
    
    if(Cpassword===password){
-    handleLoginReq(email, password,UserName,Uid,phone);
+    handleLoginReq(email, password,HospitalName,Address,phone);
    }else{
     alert("Passwords Don't Match");
    }
   };
 
   
-  async function handleLoginReq(email, password,UserName,Uid,phone) {
+  async function handleLoginReq(email, password,HospitalName,Address,phone) {
     // Define the URL of your Node.js backend API endpoint
     const apiUrl =
-    `${import.meta.env.VITE_BACKEND_URL}/auth/userregister` ;
+    `${import.meta.env.VITE_BACKEND_URL}/auth/register` ;
   
     // Create a request object with the necessary headers and the POST method
     const requestOptions = {
@@ -35,7 +36,7 @@ const Signin = ({isAuth,updateAuth}) => {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer'
       },
-      body: JSON.stringify({ email, password,UserName,Uid,phone }),
+      body: JSON.stringify({ email, password,HospitalName,Address,phone }),
     };
   
     // Send the login request
@@ -48,10 +49,9 @@ const Signin = ({isAuth,updateAuth}) => {
       })
       .then((data) => {
         //save to local storage
-        alert('Userr successfully Created', data);
+        alert('Hospital Account successfully Created', data);
         console.log(data)
         localStorage.setItem("token",data.token);
-        localStorage.setItem("userid",data.user._id);
         updateAuth(true);
         navigate('/', { replace: true });
        
@@ -59,7 +59,7 @@ const Signin = ({isAuth,updateAuth}) => {
       .catch((error) => {
         //show appropriate error
         console.error('Error:', error);
-        alert("Not able to Create User")
+        alert("Not able to Create A Hosptial Account")
         // navigate('/signin', { replace: true });
         
       });
@@ -72,7 +72,7 @@ const Signin = ({isAuth,updateAuth}) => {
            
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
               <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Sign Up
+                Hospital/Clinic - Sign Up
               </h2>
             </div>
             <div className="flex justify-center">
@@ -89,13 +89,13 @@ const Signin = ({isAuth,updateAuth}) => {
                     <div className="mt-1">
                       <input
                         id="fname"
-                        name="UserName"
+                        name="HospitalName"
                         type="text"
                        
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                        placeholder="Enter your Full Name"
-                        onChange={(e) => setUserName(e.target.value)}
+                        placeholder="Enter Hospital/Clinic Name"
+                        onChange={(e) => setHospitalName(e.target.value)}
                       />
                     </div>
                   </div>
@@ -103,13 +103,13 @@ const Signin = ({isAuth,updateAuth}) => {
                     <div className="mt-1">
                       <input
                         id="lname"
-                        name="Uid"
+                        name="Address"
                         type="number"
                        
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                        placeholder="Enter your Adhaar Number"
-                        onChange={(e) => setUid(e.target.value)}
+                        placeholder="Enter Full Hospital Address"
+                        onChange={(e) => setAddress(e.target.value)}
                       />
                     </div>
                   </div>
@@ -122,7 +122,7 @@ const Signin = ({isAuth,updateAuth}) => {
                         autoComplete="email"
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                        placeholder="Enter your email address"
+                        placeholder="Enter Hospital email address"
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
@@ -140,12 +140,12 @@ const Signin = ({isAuth,updateAuth}) => {
                        
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                        placeholder="Enter your Phone"
+                        placeholder="Enter Phone Number"
                         onChange={(e) => setphone(e.target.value)}
                       />
                     </div>
                   </div>
-                  
+                
                   <div>
                     <div className="mt-1">
                       <input
@@ -155,7 +155,7 @@ const Signin = ({isAuth,updateAuth}) => {
                        
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                        placeholder="Enter your password"
+                        placeholder="Enter  password"
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
@@ -169,7 +169,7 @@ const Signin = ({isAuth,updateAuth}) => {
                        
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                        placeholder="Confirm your password"
+                        placeholder="Confirm password"
                         onChange={(e) => setCPassword(e.target.value)}
                       />
                     </div>

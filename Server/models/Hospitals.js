@@ -2,19 +2,13 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    UserName: {
+    HospitalName: {
       type: String,
       required: true,
       min: 2,
       max: 50,
     },
-    Uid: {
-      type: String,
-      required: true,
-      unique: true,
-      min: 10,
-      max: 11,
-    },
+   
     email: {
       type: String,
       required: true,
@@ -32,8 +26,12 @@ const UserSchema = new mongoose.Schema(
       max:120000000000,
       min:1000000000, 
     },
-    
-  },
+    Address: {
+        type: String,
+        required: true,
+        min: 5,
+      },
+    },
   { timestamps: true }
 );
 

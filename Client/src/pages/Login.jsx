@@ -3,26 +3,26 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/purple.png";
 const Login = ({isAuth,updateAuth}) => {
-  const [uid, setUid] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = () => {
     // Validate input, if needed
-    if (!uid || !password) {
-      alert("Please enter both Uid and password.");
+    if (!email || !password) {
+      alert("Please enter both email and password.");
       return;
     }
 
-    // Call the login function with the Uid and password
-    handleLoginReq(uid, password);
+    // Call the login function with the email and password
+    handleLoginReq(email, password);
   };
 
-  async function handleLoginReq(Uid, password) {
+  async function handleLoginReq(email, password) {
     // Define the URL of your Node.js backend API endpoint
     
     const apiUrl = 
-    `${import.meta.env.VITE_BACKEND_URL}/auth/userlogin`  ;
+    `${import.meta.env.VITE_BACKEND_URL}/auth/login`  ;
 
     // Create a request object with the necessary headers and the POST method
     const requestOptions = {
@@ -31,7 +31,7 @@ const Login = ({isAuth,updateAuth}) => {
         "Content-Type": "application/json",
         Authorization: "Bearer",
       },
-      body: JSON.stringify({ Uid, password }),
+      body: JSON.stringify({ email, password }),
     };
 
     // Send the login request
@@ -46,20 +46,19 @@ const Login = ({isAuth,updateAuth}) => {
       .then((data) => {
         //save to local storage
         alert("Login successful", data);
-        console.log(data)
         localStorage.setItem("token", data.token);
-        localStorage.setItem("userid", data.user._id);
-        
+        localStorage.setItem("uid", data.user.lastName);
+        console.log(data.user.lastName)
         updateAuth(true);
         navigate("/", { replace: true });
       })
       .catch((error) => {
         //show appropriate error
         console.error("Error:", error);
-        alert("An Error occoured");
+        alert("Incorrect Username Or password");
         navigate("/login", { replace: true });
       });
-     
+      console.log("sending req after thsi")
   }
 
   return (
@@ -69,7 +68,7 @@ const Login = ({isAuth,updateAuth}) => {
         <div className="min-h-screen   flex flex-col justify-center sm:px-6 py-12 lg:px-8 ">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              User-Login
+              Hospital/Clinic - Login
             </h2>
           </div>
           <div className="flex justify-center">
@@ -86,13 +85,13 @@ const Login = ({isAuth,updateAuth}) => {
                   <div className="mt-1">
                     <input
                       id="email"
-                      name="Uid"
-                      type="Uid"
-                      autoComplete="Uid"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
                       required
                       className="appearance-none rounded-md relative block w-full px-3 py-2 border-b-2 border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                      placeholder="Enter your Adhaar Number"
-                      onChange={(e) => setUid(e.target.value)}
+                      placeholder="Enter email address"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
@@ -105,7 +104,7 @@ const Login = ({isAuth,updateAuth}) => {
                       type="password"
                       required
                       className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
-                      placeholder="Enter your password"
+                      placeholder="Enter password"
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
@@ -116,13 +115,13 @@ const Login = ({isAuth,updateAuth}) => {
 
                   <div className="text-sm">
                     <div className="font-medium text-gray-900 ">
-                      You Should have registered first{" "} 
+                      New To One Health?{" "}
                       <Link
                         to="/signin"
                         replace={true}
                         className="text-sky-600"
                       >
-                        Register Now
+                        Sign Up Now
                       </Link>
                     </div>
                   </div>
