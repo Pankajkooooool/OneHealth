@@ -9,7 +9,7 @@ const Navbar = ({updateAuth}) => {
     <>
     
      <div className="flex items-center justify-between  border-gray-400 py-16 md:py-2 px-3 md:px-">
-      <a href="/" className='h-4 w-4 pt-2 md:h-14 md:w-64 cover'>
+      <a href="/" className='h-4 pt-2 md:h-14 md:w-64 cover flex justify-center'>
         <img src={Logo} className='h-12' alt="logo" />
         {/* <span className='text-4xl'>One Health</span> */}
       </a>
