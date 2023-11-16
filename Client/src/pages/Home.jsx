@@ -75,7 +75,7 @@ export const Home = () => {
     </div>
   </div>
 </section>
-     
+     <div className='container text-center flex justify-center '> <a href="/operations">operations</a></div>
     </div>
 </>
   )
