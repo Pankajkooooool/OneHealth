@@ -27,7 +27,7 @@ export const Home = () => {
         };
 
         // Make the fetch request
-        const response = await fetch(`http://127.0.0.1:6001/api/${searchid}/get`, options);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/${searchid}/get`, options);
         
         // Parse the response as JSON
         const jsonData = await response.json();

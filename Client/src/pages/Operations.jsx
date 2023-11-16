@@ -33,7 +33,7 @@ const Operations = () => {
       
             // Fetch userId using GetUserId function
             const searchid = adhaar; // Assuming adhaar is defined somewhere
-            const userIdResponse = await fetch(`http://127.0.0.1:6001/users/${searchid}`, getUserIdOptions);
+            const userIdResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/${searchid}`, getUserIdOptions);
             const userIdData = await userIdResponse.json();
             const userId = userIdData[0]._id;
       
@@ -51,7 +51,7 @@ const Operations = () => {
             };
       
             // Fetch request to create a patient record
-            const response = await fetch('http://localhost:6001/api/create', createRecordOptions);
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/create`, createRecordOptions);
       
             if (response.ok) {
               const createdPatientRecord = await response.json();
