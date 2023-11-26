@@ -54,7 +54,7 @@ const Navbar = ({}) => {
                   console.log("Logged out succesfully")
                 }}  >Logout</button>
               </li>
-             <li className='uppercase my-8'>About Us</li>
+             <li className='uppercase my-8'><a href="https://one-health-center.vercel.app/">About Us </a></li>
               
             </ul>
           </div>
@@ -62,14 +62,14 @@ const Navbar = ({}) => {
         </section>
 
         <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          {isAuth? ( <li>
+            <li>
             <button onClick={()=>{
                   localStorage.removeItem("token");
                   console.log("Logged out succesfully")
                   updateAuth(false)
                   navigate('/login', { replace: true });
                 }}>Logout</button>
-          </li>): ""}
+          </li>
          
          
         </ul>
