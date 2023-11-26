@@ -117,13 +117,7 @@ const Login = ({isAuth,updateAuth}) => {
                   <div className="text-sm">
                     <div className="font-medium text-gray-900 ">
                       You Should have registered first{" "} 
-                      <Link
-                        to="/signin"
-                        replace={true}
-                        className="text-sky-600"
-                      >
-                        Register Now
-                      </Link>
+                    <a href="https://one-health-center.vercel.app/">Know More</a>
                     </div>
                   </div>
                 </div>

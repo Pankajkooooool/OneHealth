@@ -8,6 +8,7 @@ import Operations from "./pages/Operations";
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer'
 import { useState } from "react";
+import UserRegister from "./pages/UserRegister";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
     <Route path="/operations" element={(isAuth ||validateAuth(x)) ? <Operations  />: <Navigate to='/login' />} />
     <Route path="login" element={(isAuth ||validateAuth(x)) ?<Navigate to='/' /> : <Login updateAuth={updateAuth}/>  } />
     <Route path="signin" element={(isAuth ||validateAuth(x))?<Navigate to='/' />: <Signin  updateAuth={updateAuth}/> } />
+    <Route path="/user-register" element={<UserRegister  updateAuth={updateAuth}/> } />
    
   </Routes>
   <Footer />

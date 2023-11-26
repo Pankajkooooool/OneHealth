@@ -1,9 +1,11 @@
 import {React ,useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../assets/LogoWhite.png'
-const Navbar = ({updateAuth,isAuth}) => {
+const Navbar = ({}) => {
   const navigate = useNavigate()
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isAuth, setisAuth] = useState(false)
+
   return (
     
     <>
@@ -43,7 +45,7 @@ const Navbar = ({updateAuth,isAuth}) => {
               </svg>
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
-             {isAuth? (<li className=" border-gray-400 my-8 uppercase">
+             <li className=" border-gray-400 my-8 uppercase">
                 <button onClick={()=>{
                   localStorage.removeItem("token");
                   localStorage.removeItem("userid");
@@ -51,7 +53,7 @@ const Navbar = ({updateAuth,isAuth}) => {
                   navigate('/login', { replace: true });
                   console.log("Logged out succesfully")
                 }}  >Logout</button>
-              </li>): ""} 
+              </li>
              <li className='uppercase my-8'>About Us</li>
               
             </ul>

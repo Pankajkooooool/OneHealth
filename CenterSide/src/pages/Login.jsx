@@ -79,7 +79,7 @@ const Login = ({isAuth,updateAuth}) => {
           </div>
 
           <div className="mt-8 sm:mx-auto sm:w-full  sm:max-w-md mx-4 ">
-            <div className="bg-violet-200 py-8 px-4 shadow sm:rounded-lg sm:px-10  relative z-4 px-4 rounded">
+            <div className="bg-violet-200 py-8 shadow sm:rounded-lg sm:px-10  relative z-4 px-4 rounded">
               <form className="space-y-6" action="#" method="POST">
                 <div>
                   <div className="mt-1">
@@ -115,13 +115,13 @@ const Login = ({isAuth,updateAuth}) => {
 
                   <div className="text-sm">
                     <div className="font-medium text-gray-900 ">
-                      New To One Health?{" "}
+                      New Healthcare Center?{" "}
                       <Link
                         to="/signin"
                         replace={true}
                         className="text-sky-600"
                       >
-                        Sign Up Now
+                       Register Now
                       </Link>
                     </div>
                   </div>
