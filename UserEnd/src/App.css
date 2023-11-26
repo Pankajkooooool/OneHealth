@@ -1,0 +1,21 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  transition: all 0.2s ease-in-out; /* Set a default transition for all properties */
+}
+
+*:hover {
+  transition-delay: 0.075s; /* Set a 100ms transition delay on hover */
+}
+:root {  
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(244, 143, 177);
+  }
+  body{
+    position: relative;
+    
+  }
+  

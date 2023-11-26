@@ -1,16 +1,16 @@
 import {React ,useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import Logo from '../assets/Logo.png'
-const Navbar = ({updateAuth}) => {
+import Logo from '../assets/LogoWhite.png'
+const Navbar = ({updateAuth,isAuth}) => {
   const navigate = useNavigate()
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     
     <>
     
-     <div className="flex items-center justify-between  border-gray-400 py-16 md:py-2 px-3 md:px-">
-      <a href="/" className='h-4 pt-2 md:h-14 md:w-64 cover flex justify-center'>
-        <img src={Logo} className='h-12' alt="logo" />
+     <div className="flex items-center justify-between bg-sky-600 text-gray-400  border-gray-400 py-6 md:py-2 px-3 md:px-">
+      <a href="/" className='h-12 md:h-14 md:w-64 cover '>
+        <img src={Logo} className='h-12 text-white fill-white' alt="logo" />
         {/* <span className='text-4xl'>One Health</span> */}
       </a>
       <nav>
@@ -19,11 +19,12 @@ const Navbar = ({updateAuth}) => {
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-gray-200"></span>
           </div>
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+          <div className={isNavOpen ? "showMenuNav bg-sky-600 " : "hideMenuNav bg-sky-600"} >
+            <div className='text-white'>
             <div
               className="absolute top-0 right-0 px-8 py-8"
               onClick={() => setIsNavOpen(false)}
@@ -42,7 +43,7 @@ const Navbar = ({updateAuth}) => {
               </svg>
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
-              <li className=" border-gray-400 my-8 uppercase">
+             {isAuth? (<li className=" border-gray-400 my-8 uppercase">
                 <button onClick={()=>{
                   localStorage.removeItem("token");
                   localStorage.removeItem("userid");
@@ -50,22 +51,24 @@ const Navbar = ({updateAuth}) => {
                   navigate('/login', { replace: true });
                   console.log("Logged out succesfully")
                 }}  >Logout</button>
-              </li>
-             
+              </li>): ""} 
+             <li className='uppercase my-8'>About Us</li>
               
             </ul>
+          </div>
           </div>
         </section>
 
         <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          <li>
+          {isAuth? ( <li>
             <button onClick={()=>{
                   localStorage.removeItem("token");
                   console.log("Logged out succesfully")
                   updateAuth(false)
                   navigate('/login', { replace: true });
                 }}>Logout</button>
-          </li>
+          </li>): ""}
+         
          
         </ul>
       </nav>
@@ -80,7 +83,6 @@ const Navbar = ({updateAuth}) => {
         height: 100vh;
         top: 0;
         left: 0;
-        background: white;
         z-index: 10;
         display: flex;
         flex-direction: column;
