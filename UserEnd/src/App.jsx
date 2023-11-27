@@ -38,8 +38,8 @@ function App() {
   <>
   <Navbar updateAuth={updateAuth} isAuth={isAuth}/>
   <Routes>
-    <Route path="/" element={(isAuth ||validateAuth(x)) ? <Home  />: <Navigate to='/login' />} />
-    <Route path="login" element={(isAuth ||validateAuth(x)) ?<Navigate to='/' /> : <Login updateAuth={updateAuth}/>  } />
+    <Route path="/" element={(validateAuth(x)) ? <Home  />: <Navigate to='/login' />} />
+    <Route path="login" element={(validateAuth(x)) ?<Navigate to='/' /> : <Login updateAuth={updateAuth}/>  } />
     
    
   </Routes>

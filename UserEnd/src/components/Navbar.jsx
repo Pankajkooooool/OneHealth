@@ -49,7 +49,7 @@ const Navbar = ({}) => {
                 <button onClick={()=>{
                   localStorage.removeItem("token");
                   localStorage.removeItem("userid");
-                  updateAuth(false)
+                  setisAuth(false);
                   navigate('/login', { replace: true });
                   console.log("Logged out succesfully")
                 }}  >Logout</button>
@@ -66,7 +66,8 @@ const Navbar = ({}) => {
             <button onClick={()=>{
                   localStorage.removeItem("token");
                   console.log("Logged out succesfully")
-                  updateAuth(false)
+                  setisAuth(false)
+                  window.location.reload();
                   navigate('/login', { replace: true });
                 }}>Logout</button>
           </li>

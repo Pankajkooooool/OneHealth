@@ -6,6 +6,7 @@ import feat4 from "../assets/feat4.avif"
 import shield from "../assets/shield.png"
 import cardio from "../assets/cardio.png"
 import injection from "../assets/injection.png"
+import { Link } from 'react-router-dom'
 
 
 const Home = () => {
@@ -107,7 +108,7 @@ Contributing to medical research for a healthier future.</p>
           <p className="leading-relaxed text-base">Swift and accurate information for life-saving interventions.</p>
         </div>
       </div>
-      <a href='/login' class="text-white bg-sky-500 border-0 py-2 px-8 mt-8 mx-auto focus:outline-none hover:bg-blue-600 rounded text-lg">Center Login</a>
+      <Link to='/login' class="text-white bg-sky-500 border-0 py-2 px-8 mt-8 mx-auto focus:outline-none hover:bg-blue-600 rounded text-lg">Center Login</Link>
     
     </div>
   </div>
