@@ -7,7 +7,7 @@ export const HospitalRegister = async (req, res) => {
     try {
       const {
         HospitalName,
-        address,
+        Address,
         email,
         password,
         phone,
@@ -19,7 +19,7 @@ export const HospitalRegister = async (req, res) => {
   
       const newCenter = new Center({
         HospitalName,
-        address,
+        Address,
         email,
         password,
         phone,

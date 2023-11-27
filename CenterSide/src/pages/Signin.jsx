@@ -104,7 +104,7 @@ const Signin = ({isAuth,updateAuth}) => {
                       <input
                         id="lname"
                         name="Address"
-                        type="number"
+                        type="text"
                        
                         required
                         className="appearance-none rounded-md relative block w-full px-3 py-2 bord border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-sky-600 focus:border-sky-600 focus:z-10 sm:text-sm"
