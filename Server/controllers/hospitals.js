@@ -36,3 +36,21 @@ export const HospitalRegister = async (req, res) => {
       res.status(500).json({ error: err.message });
     }
   };
+
+  /* LOGGING IN */
+export const login = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const center = await Center.findOne({ email: email });
+      if (!center) return res.status(400).json({ msg: "Center does not exist." });
+  
+      const isMatch = await bcrypt.compare(password, center.password);
+      if (!isMatch) return res.status(400).json({ msg: "Invalid credentials." });
+  
+      const token = jwt.sign({ id: center._id }, process.env.JWT_SECRET);
+      delete center.password;
+      res.status(200).json({ token, center });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  };
