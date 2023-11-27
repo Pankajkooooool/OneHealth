@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import HealthRecords from '../components/HealthRecords';
 import { Link } from 'react-router-dom';
+import userinfo from '../assets/userinfo.svg'
 //Get request htmlFor user inhtmlFormation here
 
 export const Search = () => {
@@ -44,18 +45,21 @@ export const Search = () => {
   
   return (<>
     <div className=''>
-    <div className="text-4xl text-center pt-6 px-2">Hospitals Side - One Health</div>
+    <div className="text-4xl text-center pt-6 px-2">Search - One Health</div>
 
     <section className="text-gray-600 body-font">
-  <div className="container px-5 pt-24 pb-10 mx-auto">
-    {/* <div className="flex flex-col text-center w-full mb-12">
-      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
-      <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
-    </div> */}
+  <div className="container px-5 pt-12 pb-10 mx-auto">
+    <div className="flex flex-col justify-center items-center text-center w-full mb-6">
+    <img src={userinfo}
+        className=" inset-0 object-cover w-full md:w-1/2 max-h-64"
+        alt=""
+      />
+      <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Your Comprehensive Health Record - One Patient, One File.</p>
+    </div>
     <div className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
       <div className="relative flex-grow w-full">
-        <label for="full-name" className="leading-7 text-sm text-gray-600">Enter Adhaar Number</label>
-        <input type="text" id="full-name" name="Adhaar" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" onChange={(e)=>setsearchId(e.target.value)}/>
+        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Enter Adhaar Number </label>
+        <input type="number" id="full-name" name="Adhaar" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='0000 0000 0000' onChange={(e)=>setsearchId(e.target.value)}/>
       </div>
       
       <button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" onClick={fetchData}>Search</button>
@@ -73,7 +77,7 @@ export const Search = () => {
     </div>
   </div>
 </section>
-     <div className='container text-center flex justify-center '> <Link to="/operations">operations</Link></div>
+     <div className='container text-center flex justify-center '> <Link className='text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg' to="/operations">operations &#10148;</Link></div>
     </div>
 </>
   )

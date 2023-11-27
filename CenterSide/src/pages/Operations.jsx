@@ -70,7 +70,7 @@ const Operations = () => {
   return (
     <>
     <div className="text-center ">
-        Operations
+       Add a Record
     </div>
 
 

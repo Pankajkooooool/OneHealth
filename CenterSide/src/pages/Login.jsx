@@ -14,17 +14,16 @@ const Login = ({isAuth,updateAuth}) => {
       return;
     }
 
-    // Call the login function with the email and password
+    
     handleLoginReq(email, password);
   };
 
   async function handleLoginReq(email, password) {
-    // Define the URL of your Node.js backend API endpoint
+ 
     
     const apiUrl = 
     `${import.meta.env.VITE_BACKEND_URL}/auth/hospital-login`  ;
 
-    // Create a request object with the necessary headers and the POST method
     const requestOptions = {
       method: "POST",
       headers: {
@@ -34,7 +33,6 @@ const Login = ({isAuth,updateAuth}) => {
       body: JSON.stringify({ email, password }),
     };
 
-    // Send the login request
     
     await fetch(apiUrl, requestOptions)
       .then((response) => {
@@ -47,18 +45,16 @@ const Login = ({isAuth,updateAuth}) => {
         //save to local storage
         alert("Login successful", data);
         localStorage.setItem("token", data.token);
-        localStorage.setItem("uid", data.user.lastName);
-        console.log(data.user.lastName)
         updateAuth(true);
         navigate("/home", { replace: true });
       })
       .catch((error) => {
-        //show appropriate error
+       
         console.error("Error:", error);
         alert("Incorrect Username Or password");
         navigate("/login", { replace: true });
       });
-      console.log("sending req after thsi")
+    
   }
 
   return (
@@ -68,7 +64,7 @@ const Login = ({isAuth,updateAuth}) => {
         <div className="min-h-screen   flex flex-col justify-center sm:px-6 py-12 lg:px-8 ">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Hospital/Clinic - Login
+              Healthcare Center - Login
             </h2>
           </div>
           <div className="flex justify-center">
