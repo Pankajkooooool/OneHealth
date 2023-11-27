@@ -12,8 +12,8 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      min: 10,
-      max: 11,
+      min: 12,
+      max: 13,
     },
     email: {
       type: String,
@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema(
       type: Number,
       required: true,
       max:12000000000000,
-      min:10000000000, 
+      min:1000000000, 
     },
     
   },

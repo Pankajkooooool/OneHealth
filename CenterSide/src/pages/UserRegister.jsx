@@ -50,8 +50,7 @@ const UserRegister = ({isAuth,updateAuth}) => {
         //save to local storage
         alert('Userr successfully Created', data);
         console.log(data)
-        localStorage.setItem("token",data.token);
-        localStorage.setItem("userid",data.user._id);
+       
         updateAuth(true);
         navigate('/home', { replace: true });
        

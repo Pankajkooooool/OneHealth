@@ -27,7 +27,7 @@ const Signin = ({isAuth,updateAuth}) => {
   async function handleLoginReq(email, password,HospitalName,Address,phone) {
     // Define the URL of your Node.js backend API endpoint
     const apiUrl =
-    `${import.meta.env.VITE_BACKEND_URL}/auth/register` ;
+    `${import.meta.env.VITE_BACKEND_URL}/auth/hospital-register` ;
   
     // Create a request object with the necessary headers and the POST method
     const requestOptions = {

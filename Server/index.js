@@ -13,6 +13,7 @@ import userRoutes from "./routes/users.js";
 import dataRoutes from "./routes/userData.js";
 
 import { register, userRegister } from "./controllers/auth.js";
+import { HospitalRegister } from "./controllers/hospitals.js";
 import User from "./models/User.js";
 import router from "./routes/auth.js";
 /* CONFIGURATIONS */
@@ -41,6 +42,7 @@ const upload = multer({ storage });
 
 /* ROUTES WITH FILES */
 app.post("/auth/register", register);
+app.post("/auth/hospital-register", HospitalRegister);
 app.post("/auth/userregister", userRegister);
 
 /* ROUTES */

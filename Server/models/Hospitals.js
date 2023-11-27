@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema(
       type: Number,
       required: true,
       max:120000000000,
-      min:1000000000, 
+      min:100000000, 
     },
     Address: {
         type: String,

@@ -6,6 +6,7 @@ import feat4 from "../assets/feat4.avif"
 import shield from "../assets/shield.png"
 import cardio from "../assets/cardio.png"
 import injection from "../assets/injection.png"
+import hero from "../assets/hero.jpg"
 import { Link } from 'react-router-dom'
 
 
@@ -14,8 +15,7 @@ const Home = () => {
     <div>
        
     <div className="relative">
-      <img
-        src="https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+      <img src={hero}
         className="absolute inset-0 object-cover w-full h-full"
         alt=""
       />
