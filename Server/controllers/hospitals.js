@@ -38,7 +38,7 @@ export const HospitalRegister = async (req, res) => {
   };
 
   /* LOGGING IN */
-export const login = async (req, res) => {
+export const HospitalLogin = async (req, res) => {
     try {
       const { email, password } = req.body;
       const center = await Center.findOne({ email: email });

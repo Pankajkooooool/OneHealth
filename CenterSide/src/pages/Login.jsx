@@ -22,7 +22,7 @@ const Login = ({isAuth,updateAuth}) => {
     // Define the URL of your Node.js backend API endpoint
     
     const apiUrl = 
-    `${import.meta.env.VITE_BACKEND_URL}/auth/login`  ;
+    `${import.meta.env.VITE_BACKEND_URL}/auth/hospital-login`  ;
 
     // Create a request object with the necessary headers and the POST method
     const requestOptions = {
