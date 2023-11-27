@@ -31,7 +31,7 @@ export const HospitalRegister = async (req, res) => {
      
       const token = jwt.sign({ id: savedCenter._id }, process.env.JWT_SECRET);
   
-      res.status(200).json({ token, savedUser });
+      res.status(200).json({ token, savedCenter });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
