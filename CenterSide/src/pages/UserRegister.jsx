@@ -53,7 +53,7 @@ const UserRegister = ({isAuth,updateAuth}) => {
         localStorage.setItem("token",data.token);
         localStorage.setItem("userid",data.user._id);
         updateAuth(true);
-        navigate('/', { replace: true });
+        navigate('/home', { replace: true });
        
       })
       .catch((error) => {

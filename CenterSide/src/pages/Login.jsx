@@ -50,7 +50,7 @@ const Login = ({isAuth,updateAuth}) => {
         localStorage.setItem("uid", data.user.lastName);
         console.log(data.user.lastName)
         updateAuth(true);
-        navigate("/", { replace: true });
+        navigate("/home", { replace: true });
       })
       .catch((error) => {
         //show appropriate error

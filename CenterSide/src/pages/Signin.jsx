@@ -53,7 +53,7 @@ const Signin = ({isAuth,updateAuth}) => {
         console.log(data)
         localStorage.setItem("token",data.token);
         updateAuth(true);
-        navigate('/', { replace: true });
+        navigate('/home', { replace: true });
        
       })
       .catch((error) => {
