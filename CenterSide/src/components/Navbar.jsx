@@ -1,5 +1,5 @@
 import {React ,useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../assets/Logo.png'
 const Navbar = ({updateAuth}) => {
   const navigate = useNavigate()
@@ -51,7 +51,7 @@ const Navbar = ({updateAuth}) => {
                   console.log("Logged out succesfully")
                 }}  >Logout</button>
               </li>
-             
+              <li><Link to="/user-register">Register a User</Link></li>
               
             </ul>
           </div>
@@ -66,6 +66,7 @@ const Navbar = ({updateAuth}) => {
                   navigate('/login', { replace: true });
                 }}>Logout</button>
           </li>
+          <li><Link to="/user-register">Register a User</Link></li>
          
         </ul>
       </nav>

@@ -46,7 +46,7 @@ function App() {
     <Route path="/home" element={(isAuth ||validateAuth(x)) ? <Search  />: <Navigate to='/' />} />
     <Route path="/login" element={(validateAuth(x)) ?<Navigate to='/home' /> : <Login updateAuth={updateAuth}/>  } />
     <Route path="/signin" element={(isAuth ||validateAuth(x))?<Navigate to='/' />: <Signin  updateAuth={updateAuth}/> } />
-    <Route path="/user-register" element={<UserRegister  updateAuth={updateAuth}/> } />
+    <Route path="/user-register" element={(isAuth ||validateAuth(x)) ?<UserRegister  updateAuth={updateAuth}/> :<Navigate to='/login' />} />
    
   </Routes>
   <Footer />

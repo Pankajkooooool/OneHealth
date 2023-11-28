@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Operations = () => {
     const [condition, setCondition] = useState('');
@@ -107,7 +108,7 @@ const Operations = () => {
         handleCreatePatientRecord();
     }}>Create Record</button>
 </form>
-
+<div className='container text-center flex justify-center py-6'> <Link className='text-white bg-blue-500 border-0 px-2  py-1 focus:outline-none hover:bg-blue-600 rounded-full text-lg' to="/home"> <div className='rotate-180'>&#10148;</div></Link></div>
 
     
     </>
